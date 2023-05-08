@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title> Assignment 2 - Holiday Travel</title> -->
+    <style>
+        /* CSS  */
+        .header {
+            text-align: center;
+            background-color: #f7f7f7;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+        font-size: 2em;
+    }
+
+    label {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    input {
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    #hotellist {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    pre {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid black;
+        white-space: pre-wrap;
+        background-color: #f7f7f7;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1> Assignment 2 - Holiday Travel </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h2>Holidays</h2>
+                    <label for="year">Year:</label>
+                    <input type="text" id="year" name="year">
+                    <br>
+                    <label for="countryName">Country Name:</label>
+                    <input type="text" id="countryName" name="countryName">
+                    <p class="hint">Use English, with the first letter capitalized (e.g., "China、United States of America")</p>
+                    <br>
+                    <button type="button" onclick="getholiday()">Get Holiday List</button>
+            
+                    <pre id="holidaylist"> </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h2>Weather</h2>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                    <p class="hint"> The first letter of the city name should be capitalized e.g. "Beijing, New York"</p>
+                    <br>
+                    <label for="checkin">Check-in Date:</label>
+                    <input type="date" id="checkin" name="checkin" value="2023-06-20">
+                    <br>
+                    <label for="checkout">Check-out Date:</label>
+                    <input type="date" id="checkout" name="checkout" value="2023-06-21">
+                    <p class="hint">The check-out time should be after the check-in time</p>
+                    <br>
+                    <button type="button" onclick="getCurWeather()">Get current weather</button>
+                    <button type="button" onclick="getweatherList()">Forecast the weather over a period of time</button>
+                    <p class="hint">The free API provides weather data for the next 5 days only</p>
+                    <pre id="weatherlist"> </pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h2>Hotels</h2>
+                    <!-- <form>
+                        <label for="checkin">Check-in Date:</label>
+                        <input type="date" id="checkin" name="checkin" value="2023-07-10">
+                        <br>
+                        <label for="checkout">Check-out Date:</label>
+                        <input type="date" id="checkout" name="checkout" value="2023-07-12">
+                        <p class="hint">The check-out time should be after the check-in time</p>
+                        <br> -->
+<label for="adults_number">Adults:</label>
+<input type="number" id="adults_number" name="adults_number" min="1" value="2">
+<br>
+<label for="currency">Currency:</label>
+<select id="currency" name="currency">
+<option value="CNY">CNY</option>
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="GBP">GBP</option>
+</select>
+<br>
+<button type="button" onclick="getHotels()">Get hotel list</button>
+</form>
+<ul id="hotellist"></ul>
+<div>
+<div id="pagination" style="display: none;">
+<button type="button" onclick="prevPage()">Previous Page</button>
+<span id="page-number"></span>
+<button type="button" onclick="nextPage()">Next Page</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script src="Holiday.js"></script>
+<script src="CurWeather.js"></script>
+<script src="WeatheList.js"></script>
+<script src="getHotel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
